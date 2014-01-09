@@ -1,6 +1,7 @@
 define dirvish::vault(
   $client,
   $tree,
+  $preclient = false,
   $excludes = [],
 ) {
 
