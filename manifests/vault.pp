@@ -26,15 +26,15 @@ define dirvish::vault(
     mode    => 0644,
     content => template('dirvish/vault.erb')
   }
-  ~>
+  ->
   # Initialize the vault. This could take a while, so we disable the timeout.
-  # By using both creates and refreshonly, we hopefully avoid re-running this
-  # when the 'initial' image rotates out
+  # Sadly 'creates' and 'refreshonly' work as an OR pair, so instead we
+  # look for the history file - this will only exist if there has been at least
+  # one successful backup
   exec { "Initialize Dirvish Vault: ${name}":
     timeout     => 0,
     command     => "/usr/sbin/dirvish --init --vault ${name} --image initial",
-    refreshonly => true,
-    creates     => "${::dirvish::backup_location}/${name}/initial",
+    creates     => "${::dirvish::backup_location}/${name}/dirvish/default.hist",
     require     => File['/etc/dirvish/master.conf'],
   }
 
