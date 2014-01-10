@@ -8,7 +8,7 @@ image-default: %Y%m%d
 rsh: ssh -oStrictHostKeyChecking=no -i<%= scope.lookupvar('::dirvish::backup_location') %>/ssh/dirvish_key
 
 <% if preclient -%>
-pre-client: /etc/dirvish_pre_client
+pre-client: /etc/dirvish/pre_client
 
 <% end -%>
 expire-rule:
