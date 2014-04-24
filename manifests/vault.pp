@@ -1,8 +1,10 @@
 define dirvish::vault(
   $client,
   $tree,
-  $preclient = false,
-  $excludes = [],
+  $preclient      = false,
+  $excludes       = [],
+  $expire_default = "+30 days",
+  $expire_rules   = ['mday { 1 } +6 months']
 ) {
 
   file { "${::dirvish::backup_location}/${name}":

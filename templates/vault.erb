@@ -11,10 +11,12 @@ rsh: ssh -oStrictHostKeyChecking=no -i<%= scope.lookupvar('::dirvish::backup_loc
 pre-client: /etc/dirvish/pre_client
 
 <% end -%>
+<% unless @expire_rules.empty? -%>
 expire-rule:
-  mday { 1 } +6 months
+  <%= @expire_rules.join("\n  ") %>
+<% end -%>
 
-expire-default: +30 days
+expire-default: <%= @expire_default %>
 
 <% unless @excludes.empty? -%>
 exclude:
