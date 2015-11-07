@@ -28,6 +28,12 @@ class dirvish::client (
   }
 
   # Basic pre-run script
+  file { '/etc/dirvish':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => 0755,
+  }
   file { '/etc/dirvish/pre_client':
     owner   => 'root',
     group   => 'root',
