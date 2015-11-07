@@ -1,7 +1,8 @@
 class dirvish(
   $backup_location = $dirvish::params::backup_location,
   $symlink_latest  = $dirvish::params::symlink_latest,
-  $vaults          = $dirvish::params::vaults
+  $vaults          = $dirvish::params::vaults,
+  $use_systemd     = $dirvish::params::use_systemd,
 ) inherits dirvish::params {
 
   anchor { 'dirvish::start':   } ->

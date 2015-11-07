@@ -7,6 +7,9 @@ class dirvish::params {
   # backup completes
   $symlink_latest   = true
 
+  # Use systemd timers instead of cron for nightly execution?
+  $use_systemd = false
+
   # The backups to perform. This is an example.
   $vaults = {
     test       => {
