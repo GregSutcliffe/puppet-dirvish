@@ -3,7 +3,7 @@ class dirvish::service {
   if $::dirvish::use_systemd {
     file { '/etc/systemd/system/dirvish.timer':
       content => template('dirvish/systemd.dirvish.timer.erb'),
-      notify  => Exec['systemctl-daemon-reload'],
+      notify  => Exec['dirvish-systemctl-daemon-reload'],
     }
 
     file { '/etc/systemd/system/dirvish.service':
