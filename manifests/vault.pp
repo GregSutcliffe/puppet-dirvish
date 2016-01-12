@@ -11,21 +11,21 @@ define dirvish::vault(
     ensure => directory,
     owner  => 'root',
     group  => 'root',
-    mode   => 0644,
+    mode   => '0644',
   }
   ->
   file { "${::dirvish::backup_location}/${name}/dirvish":
     ensure => directory,
     owner  => 'root',
     group  => 'root',
-    mode   => 0644,
+    mode   => '0644',
   }
   ->
   file { "${::dirvish::backup_location}/${name}/dirvish/default.conf":
     ensure  => present,
     owner   => 'root',
     group   => 'root',
-    mode    => 0644,
+    mode    => '0644',
     content => template('dirvish/vault.erb')
   }
   ->

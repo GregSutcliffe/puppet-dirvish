@@ -6,14 +6,14 @@ class dirvish::install {
     ensure => directory,
     owner  => 'root',
     group  => 'root',
-    mode   => 0755,
+    mode   => '0755',
   }
 
   file { "${::dirvish::backup_location}/ssh":
     ensure => directory,
     owner  => 'root',
     group  => 'root',
-    mode   => 0700,
+    mode   => '0700',
   }
 
   # This clever function creates SSH keys on the puppetmaster and allows them to
@@ -28,14 +28,14 @@ class dirvish::install {
   file { "${::dirvish::backup_location}/ssh/dirvish_key":
     owner   => 'root',
     group   => 'root',
-    mode    => 0400,
+    mode    => '0400',
     content => "${priv_key}",
   }
 
   file { "${::dirvish::backup_location}/ssh/dirvish_key.pub":
     owner   => 'root',
     group   => 'root',
-    mode    => 0644,
+    mode    => '0644',
     content => "ssh-rsa ${pub_key} dirvish_key\n",
   }
 

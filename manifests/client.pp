@@ -32,12 +32,12 @@ class dirvish::client (
     ensure => directory,
     owner  => 'root',
     group  => 'root',
-    mode   => 0755,
+    mode   => '0755',
   }
   file { '/etc/dirvish/pre_client':
     owner   => 'root',
     group   => 'root',
-    mode    => 0755,
+    mode    => '0755',
     content => $content,
   }
 

@@ -12,7 +12,7 @@ class dirvish::config {
     file { '/etc/dirvish/post-server':
       owner   => 'root',
       group   => 'root',
-      mode    => 0755,
+      mode    => '0755',
       content => template('dirvish/post-server.erb')
     }
   }
