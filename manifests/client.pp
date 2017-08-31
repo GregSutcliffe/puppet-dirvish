@@ -14,7 +14,7 @@ class dirvish::client (
   file_line { 'dirvish_ssh_pubkey':
     ensure => present,
     path   => '/root/.ssh/authorized_keys',
-    line   => "ssh-rsa ${pub_key} dirvish_key\n",
+    line   => "ssh-rsa ${pub_key} dirvish_key",
   }
 
   $template_content = $pre_template ? {
