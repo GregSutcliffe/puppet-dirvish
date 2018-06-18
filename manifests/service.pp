@@ -39,5 +39,15 @@ class dirvish::service {
       hour    => '2',
       minute  => '45'
     }
+
+    if $::dirvish::overwrite_cronjob {
+      file { '/etc/dirvish/dirvish-cronjob':
+        ensure => present,
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+        source => 'puppet:///modules/dirvish/dirvish-cronjob',
+      }
+    }
   }
 }

@@ -22,4 +22,7 @@ class dirvish::params {
     }
   }
 
+  # Some packages don't provide a default cronjob
+  $overwrite_cronjob = true
+
 }
