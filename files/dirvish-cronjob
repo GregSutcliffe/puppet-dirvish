@@ -2,8 +2,8 @@
 #
 # daily cron job for the dirvish package
 #
-if [ ! -x /usr/sbin/dirvish-expire  ]; then exit 0; fi
-if [ ! -s /etc/dirvish/master.conf ]; then exit 0; fi
+if [ ! `which dirvish-expire`  ]; then exit 1; fi
+if [ ! -s /etc/dirvish/master.conf ]; then exit 1; fi
 
 mount_check() {
 	mntout=`tempfile -p mount`
