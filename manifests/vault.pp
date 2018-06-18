@@ -35,7 +35,7 @@ define dirvish::vault(
   # one successful backup
   exec { "Initialize Dirvish Vault: ${name}":
     timeout     => 0,
-    command     => "/usr/sbin/dirvish --init --vault ${name} --image initial",
+    command     => "/usr/bin/dirvish --init --vault ${name} --image initial",
     creates     => "${::dirvish::backup_location}/${name}/dirvish/default.hist",
     require     => File['/etc/dirvish/master.conf'],
   }
