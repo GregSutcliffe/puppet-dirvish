@@ -43,7 +43,7 @@ class dirvish::client (
 
   # Dirvish depends on rsync
   if $declare_rsync {
-    package { 'rsync': ensure => installed }
+    ensure_packages(['rsync'])
   }
 
 }
